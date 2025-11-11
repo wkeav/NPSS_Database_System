@@ -52,5 +52,5 @@ replay_pid*
 *.csv
 mailing_list.csv
 
-# Lectures (if you want to exclude them)
-# Lectures/
+# Lectures
+Lectures/
