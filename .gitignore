@@ -29,6 +29,12 @@ buildNumber.properties
 # Log files
 *.log
 
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
 # Package files
 *.jar
 *.war
@@ -38,10 +44,13 @@ buildNumber.properties
 *.tar.gz
 *.rar
 
+# Virtual machine crash logs
+hs_err_pid*
+replay_pid*
+
 # Generated files
 *.csv
 mailing_list.csv
 
 # Lectures (if you want to exclude them)
 # Lectures/
-
