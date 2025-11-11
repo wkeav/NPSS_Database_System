@@ -330,6 +330,28 @@ Primary Key of SECTION = (course_id, sec_id, semester, year)
 
 **Your Task:** Design the ER model using the visual notation above.
 
+<details>
+<summary>Click to reveal solution</summary>
+
+**Solution:**
+```
+Entities:
+- BOOK (ISBN, title, author, publication_year, is_reference)
+- MEMBER (ID, name, email)
+- BORROWING (borrow_date, return_date)
+
+Relationships:
+- BORROWS: MEMBER ←→ BOOK (many-to-many)
+- PHONE_NUMBERS: MEMBER ←→ PHONE (one-to-many, multivalued)
+
+Key Points:
+- is_reference attribute determines if book can be borrowed
+- PHONE_NUMBERS as separate entity for multivalued attribute
+- BORROWING relationship has date attributes
+```
+
+</details>
+
 ### Exercise 2: Hospital Database Design
 **Requirements:**
 - Patients have ID, name, date of birth, insurance info
@@ -340,6 +362,36 @@ Primary Key of SECTION = (course_id, sec_id, semester, year)
 
 **Your Task:** Identify entities, relationships, and constraints.
 
+<details>
+<summary>Click to reveal solution</summary>
+
+**Solution:**
+```
+Entities:
+- PATIENT (ID, name, date_of_birth, insurance_info, patient_type)
+- DOCTOR (ID, name, specialization, department)
+- VISIT (visit_id, date, diagnosis, treatment)
+- ROOM (room_number, room_type)
+
+Relationships:
+- TREATS: DOCTOR ←→ PATIENT (many-to-many)
+- HAS_VISIT: PATIENT ←→ VISIT (one-to-many)
+- CONDUCTS: DOCTOR ←→ VISIT (one-to-many)
+- ASSIGNED_TO: INPATIENT ←→ ROOM (one-to-many)
+
+Specialization:
+- PATIENT (superclass)
+  ├── INPATIENT (room_assignment)
+  └── OUTPATIENT
+
+Key Points:
+- patient_type discriminator for specialization
+- VISIT as separate entity with attributes
+- Room assignment only for inpatients
+```
+
+</details>
+
 ### Exercise 3: E-commerce System
 **Requirements:**
 - Customers, Products, Orders, Categories
@@ -348,6 +400,31 @@ Primary Key of SECTION = (course_id, sec_id, semester, year)
 - Track order status and shipping information
 
 **Your Task:** Design the complete ER model with all constraints.
+
+<details>
+<summary>Click to reveal solution</summary>
+
+**Solution:**
+```
+Entities:
+- CUSTOMER (customer_id, name, email, address)
+- PRODUCT (product_id, name, price, description)
+- CATEGORY (category_id, name, description)
+- ORDER (order_id, order_date, status, shipping_address)
+- ORDER_ITEM (quantity, unit_price)
+
+Relationships:
+- BELONGS_TO: PRODUCT ←→ CATEGORY (many-to-one)
+- PLACES: CUSTOMER ←→ ORDER (one-to-many)
+- CONTAINS: ORDER ←→ ORDER_ITEM ←→ PRODUCT (many-to-many through ORDER_ITEM)
+
+Key Points:
+- ORDER_ITEM as relationship entity for order-product with quantity
+- Order status and shipping as order attributes
+- Proper cardinalities: Customer→Order (1:N), Order→Product (M:N)
+```
+
+</details>
 
 ## 🧠 **Senior Engineer Insights**
 

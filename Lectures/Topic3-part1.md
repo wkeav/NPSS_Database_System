@@ -182,7 +182,7 @@ SWE(eID, name, token)
 ```
 
 ### Aggregation
-- Treat the relationship as an abstract entity
+- Treat the relationship as an abstract entity. Model relationships as entities. 
 - **Example**: 
   - `treat(doctor_ID, patient_ID, date)`
   - `support_ER(doctor_ID, patient_ID, treat_date, staff_ID, date, #hours)`
@@ -291,10 +291,18 @@ erDiagram
 
 ### Poll 1: Multivalued Attributes
 **Question**: How many relation schemas for Person with multivalued emails and phone numbers?
+
+<details>
+<summary>Click to reveal answer</summary>
+
 **Answer**: 3 schemas
 - `Person(ID, name)`
 - `Person_emails(person_ID, email)`
 - `Person_phone_numbers(person_ID, phone_number)`
+
+**Explanation**: Each multivalued attribute becomes a separate table with the primary key of the main entity as a foreign key.
+
+</details>
 
 ```mermaid
 erDiagram
@@ -324,7 +332,15 @@ erDiagram
 
 ### Poll 2: Relationship Mapping
 **Question**: How many schemas for Product-Companies relationship?
+
+<details>
+<summary>Click to reveal answer</summary>
+
 **Answer**: 3 schemas (one for each entity set plus one for the relationship)
+
+**Explanation**: Many-to-many relationships require three tables: one for each entity and one for the relationship itself.
+
+</details>
 
 ```mermaid
 erDiagram
@@ -358,7 +374,15 @@ erDiagram
 
 ### Poll 3: One-to-Many Relationship
 **Question**: Correct schema for work_for relationship?
+
+<details>
+<summary>Click to reveal answer</summary>
+
 **Answer**: `work_for(ins_ID, dept_id)` or include `dept_id` in instructor schema
+
+**Explanation**: For one-to-many relationships, you can either create a separate relationship table or include the foreign key in the "many" side (instructor table). The second option is more common and efficient.
+
+</details>
 
 ```mermaid
 graph TD
@@ -379,7 +403,15 @@ graph TD
 
 ### Poll 4: Recursive Relationship
 **Question**: Correct schema for faculty mentor relationship?
+
+<details>
+<summary>Click to reveal answer</summary>
+
 **Answer**: `faculty(ID, name, address, mentor_ID)` or separate relationship table
+
+**Explanation**: For recursive relationships, you can use a self-referencing foreign key in the same table or create a separate relationship table. The self-referencing approach is simpler for one-to-many recursive relationships.
+
+</details>
 
 ```mermaid
 erDiagram
@@ -400,7 +432,15 @@ erDiagram
 
 ### Poll 5: Ternary Relationship with Attributes
 **Question**: Correct schema for shipping relationship?
+
+<details>
+<summary>Click to reveal answer</summary>
+
 **Answer**: `shipping(PID, SID, supply_date, CID, shipping_date)`
+
+**Explanation**: Ternary relationships require a separate table with foreign keys to all three participating entities plus any relationship attributes.
+
+</details>
 
 ```mermaid
 erDiagram

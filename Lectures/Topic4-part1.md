@@ -529,10 +529,21 @@ graph TD
 ### Poll Question 1:
 **Scenario**: Disk block size = 4KB, 50 fixed-size records (100 bytes each)
 
+**Question**: How many I/O operations are required to retrieve all data?
+
+<details>
+<summary>Click to reveal answer</summary>
+
+**Answer**: 2 I/O operations required to retrieve all data
+
 **Calculation**:
 - Records per block = 4096 / 100 = 40 records (with 96 bytes wasted)
 - Total blocks needed = ceil(50 / 40) = 2 blocks
-- **Answer**: 2 I/O operations required to retrieve all data
+- Each block requires one I/O operation
+
+**Key Learning**: Block size affects I/O efficiency - larger blocks can hold more records but may waste space.
+
+</details>
 
 ### Performance Optimization Principles:
 

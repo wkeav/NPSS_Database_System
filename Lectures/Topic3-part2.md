@@ -900,16 +900,40 @@ end
 
 ### Poll Questions Summary
 
+<details>
+<summary>Click to reveal all poll answers</summary>
+
 **Poll 6**: SELECT * FROM department returns 3 attributes  
+**Answer**: True - SELECT * returns all columns (dept_name, building, budget)
+
 **Poll 7**: SELECT dept_name, building FROM department returns 2 attributes  
+**Answer**: True - Explicitly selecting 2 columns returns 2 attributes
+
 **Poll 8**: Join query with 3 instructor tuples and 3 teaches tuples returns 3 rows  
+**Answer**: False - Cartesian product would return 3×3=9 rows, but with proper join conditions it depends on matching
+
 **Poll 9**: Query results allow duplicate tuples (True)  
+**Answer**: True - SQL allows duplicates by default unless DISTINCT is used
+
 **Poll 10**: Non-aggregated column not in GROUP BY causes error  
+**Answer**: True - All non-aggregated columns in SELECT must be in GROUP BY
+
 **Poll 11**: EXISTS returns only customers with at least one order  
+**Answer**: True - EXISTS returns TRUE if subquery has any rows
+
 **Poll 12**: Customers with more than 1 order returns 2 rows  
+**Answer**: Depends on data - need to count actual customers with >1 order
+
 **Poll 13**: GROUP BY product_id returns 4 rows  
+**Answer**: Depends on data - returns one row per unique product_id
+
 **Poll 14**: Scalar subquery with customer orders returns 3 rows  
-**Poll 15**: Complex customer query returns 1 column
+**Answer**: False - Scalar subquery must return exactly one value
+
+**Poll 15**: Complex customer query returns 1 column  
+**Answer**: Depends on SELECT clause - could be 1 or more columns
+
+</details>
 
 ### Practice Examples
 The slides include multiple practice scenarios with customer and order tables demonstrating:
