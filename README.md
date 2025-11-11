@@ -72,6 +72,9 @@ mvn exec:java -Dexec.mainClass="com.npss.database.Main"
 - `Nguyen_Astra_IP_Task5a.sql`: SQL stored procedures for all queries
 - `NPSS_Database_App/`: Main Java application source code
 
+## Author
+Astra Nguyen
+
 ## License
 
 GPL-2.0
